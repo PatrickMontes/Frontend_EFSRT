@@ -47,6 +47,7 @@ export default class ApiService{
                 "Content-Type": "multipart/form-data"
             }
         })
+
         return response.data
     }
 
@@ -58,6 +59,7 @@ export default class ApiService{
                 "Content-Type": "multipart/form-data"
             }
         })
+
         return response.data
     }
 
@@ -72,6 +74,7 @@ export default class ApiService{
         const response = await axios.get(`${this.BASE_URL}/producto/buscar`, {
             params: (valor)
         })
+
         return response.data
     }
 
@@ -92,10 +95,53 @@ export default class ApiService{
         const response = await axios.delete(`${this.BASE_URL}/producto/eliminar/${productoId}`, {
             headers: this.getHeader()
         })
+
         return response.data
     }
     
 
 
     //*** Categoria ENDPOINT***//
+    static async crearCategoria(body){
+        const response = await axios.post(`${this.BASE_URL}/categoria/crear`, body, {
+            headers: this.getHeader()
+        })
+
+        return response.data
+    }
+
+
+    static async getAllCategorias(){
+        const response = await axios.get(`${this.BASE_URL}/categoria/getAll`)
+        return response.data
+    }
+
+
+    static async getCategoriaPorId(categoriaId){
+        const response = await axios.get(`${this.BASE_URL}/categoria/getCategoriaPorId/${categoriaId}`)
+        return response.data
+    }
+
+
+    static async actualizarCategoria(body, categoriaId){
+        const response = await axios.put(`${this.BASE_URL}/categoria/actualizar/${categoriaId}`, body, {
+            headers: this.getHeader()
+        })
+
+        return response.data
+    }
+
+
+    static async eliminarCategoria(categoriaId){
+        const response = await axios.delete(`${this.BASE_URL}/categoria/eliminar/${categoriaId}`, {
+            headers: this.getHeader()
+        })
+
+        return response.data
+    }
+ 
+
+
+    //*** Pedido ENDPOINT***//
+
 }
