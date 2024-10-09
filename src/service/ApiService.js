@@ -178,4 +178,12 @@ export default class ApiService{
 
 
     //*** Direccion ENDPOINT***//
+    static async guardarDireccion(body){
+        const response = await axios.post(`${this.BASE_URL}/direccion/guardar`, body, {
+            headers: this.getHeader()
+        })
+
+        return response.data
+    }
+
 }
