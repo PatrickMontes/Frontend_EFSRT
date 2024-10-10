@@ -200,7 +200,7 @@ export default class ApiService{
     //*** Verificar Autenticacion***//
     static logout(){
         localStorage.removeItem("token")
-        localStorage.removeItem("role")
+        localStorage.removeItem("rol")
     }
 
 
@@ -211,7 +211,8 @@ export default class ApiService{
 
 
     static isAdmin(){
-        const role = localStorage.getItem("role")
-        return role === 'ADMIN'
+        const rol = localStorage.getItem("rol")
+        return rol === 'ADMIN'
     }
+
 }
