@@ -174,6 +174,15 @@ export default class ApiService{
         })
         return response.data
     }
+
+
+    static async actualizarPedidoItemEstado(itemPedidoId, estado){
+        const response = await axios.get(`${this.BASE_URL}/pedido/actualizarEstadoItemPedido/${itemPedidoId}`, {
+            headers: this.getHeader(),
+            params: {estado}
+        })
+        return response.data
+    }
     
 
 
@@ -186,4 +195,23 @@ export default class ApiService{
         return response.data
     }
 
+
+
+    //*** Verificar Autenticacion***//
+    static logout(){
+        localStorage.removeItem("token")
+        localStorage.removeItem("role")
+    }
+
+
+    static isAuthenticated(){
+        const token = localStorage.getItem("token")
+        return !!token
+    }
+
+
+    static isAdmin(){
+        const role = localStorage.getItem("role")
+        return role === 'ADMIN'
+    }
 }
