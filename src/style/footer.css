@@ -1,11 +1,27 @@
+@font-face {
+    font-family: 'Cocogoose-Classic';
+    src: url(/public/fuentes/Cocogoose-Classic-ExtraBold.ttf);
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Cocogoose-Classic-medium';
+    src: url(/public/fuentes/Cocogoose-Classic-Medium.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
 .footer{
+    font-family: 'Cocogoose-Classic-Classic', sans-serif;
     position: fixed;
     border: 0;
     width: 100%;
-    background-color: #333;
-    color: #fff;
+    background-color: #fffefe;
+    color: #092fb7;
     text-align: center;
-    padding: 20px 0;
+    padding: 50px 0;
+    border-radius: 50px 50px 0px 0px;
     z-index: 1000;
 }
 
@@ -14,18 +30,19 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-self: center;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
 .footer-links a{
     text-decoration: none;
-    color: white;
-    font-weight: bold;
+    color: #092fb7;
+    font-weight: 900;
+    font-size: 20px;
     margin: 0 15px;
 }
 
 .footer-info p{
-    color: white;
+    color: #000000;
     margin: 0 0;
 }
