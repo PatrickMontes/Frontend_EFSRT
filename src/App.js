@@ -4,6 +4,7 @@ import { ProtectedRoute, AdminRoute } from './service/Guard';
 import Navbar from './component/common/Navbar';
 import Footer from './component/common/Footer';
 import { CartProvider } from './component/context/CartContext';
+import Home from './component/pages/Home';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Navbar />
           <Routes>
             {/* OUR ROUTES */}
+            <Route exact path='/' element={<Home/>}/>
           </Routes>
         <Footer />
       </CartProvider>
