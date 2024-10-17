@@ -34,7 +34,7 @@ const ProductList = ({ products }) => {
                             <img src={product.urlImagen} alt={product.nombre} className="product-image" />
                             <h3>{product.nombre}</h3>
                             <p>{product.descripcion}</p>
-                            <span>${product.precio?.toFixed(2)}</span>
+                            <span>{product.precio?.toFixed(2)} soles</span>
                         </Link>
                         {cartItem ? (
                             <div className="quantity-controls">
@@ -43,7 +43,7 @@ const ProductList = ({ products }) => {
                                 <button onClick={() => incrementItem(product)}> + </button>
                             </div>
                         ) : (
-                            <button onClick={() => addToCart(product)}>Add To Cart</button>
+                            <button onClick={() => addToCart(product)}>CARRITO</button>
                         )}
                     </div>
                 );

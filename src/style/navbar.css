@@ -38,6 +38,7 @@ body{
 
 .navbar-serch input{
     padding: 15px;
+    font-family: sans-serif;
     width: 500px;
     border: none;
     border-radius: 15px;
