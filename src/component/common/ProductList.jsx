@@ -30,7 +30,7 @@ const ProductList = ({ products }) => {
                 const cartItem = cart.find(item => item.id === product.id);
                 return (
                     <div className="product-item" key={index}>
-                        <Link to={`/product/${product.id}`}>
+                        <Link to={`/producto/${product.id}`}>
                             <img src={product.urlImagen} alt={product.nombre} className="product-image" />
                             <h3>{product.nombre}</h3>
                             <p>{product.descripcion}</p>
