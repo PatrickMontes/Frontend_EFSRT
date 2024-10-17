@@ -29,7 +29,7 @@ const LoginPage = () => {
                 setMessage("User Successfully Logged in");
                 localStorage.setItem('token', response.token); 
                 localStorage.setItem('rol', response.rol);   
-                navigate("/productos"); // Redirige inmediatamente
+                navigate("/productos"); 
             }
         } catch (error) {
             console.error("Error durante el inicio de sesión:", error);
