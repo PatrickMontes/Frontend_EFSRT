@@ -1,24 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+
+
 .pagination{
     display: flex;
     justify-content: center;
-    margin: 1rem 0 7.5rem 0;
+    margin: 1rem;
 }
 
 .pagination button{
+    font-family: "Caveat Brush", cursive;
     background-color: #555;
     border: none;
-    color: white;
-    padding: 10px 20px;
+    color: #fed000;
+    padding: 8px 20px;
     margin: 0 5px;
     cursor: pointer;
-    border-radius: 5px;
+    font-size: 25px;
+    font-weight: 900;
+    border-radius: 80px;
     transition: background-color 0.3s;
 
 }
 
 .pagination button.active{
-    background-color: #f68b1e;
+    background-color: #082fb6;
 }
 .pagination button:hover{
-    background-color: #874f17;
+    background-color: #2044c4;
 }

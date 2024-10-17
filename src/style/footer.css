@@ -12,8 +12,12 @@
     font-style: normal;
 }
 
+html{
+    height: 100%;
+    overflow: hidden;
+}
+
 .footer{
-    font-family: 'Cocogoose-Classic-Classic', sans-serif;
     position: fixed;
     border: 0;
     width: 100%;
@@ -43,6 +47,7 @@
 }
 
 .footer-info p{
+    font-family: sans-serif;
     color: #000000;
     margin: 0 0;
 }

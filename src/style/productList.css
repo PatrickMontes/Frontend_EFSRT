@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+
 @font-face {
     font-family: 'Cocogoose-Classic';
     src: url(/public/fuentes/Cocogoose-Classic-ExtraBold.ttf);
@@ -13,7 +15,7 @@
 }
 
 *{
-    font-family: sans-serif;
+    font-family: "Cocogoose-Classic", cursive;
 }
 
 .product-list{
@@ -26,18 +28,11 @@
 }
 
 .product-item {
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3 ease;
     width: 250px;
 }
 
-.product-item:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transform: translate(-5px);
-}
 
 .product-item a {
     color: inherit;
@@ -45,23 +40,26 @@
 }
 
 .product-item h3 {
-    color: #333;
-    font-size: 1.2em;
-    margin: 10px 0px;
+    color: #082eb7;
+    font-family: 'Cocogoose-Classic-medium';
+    font-weight: 800;
+    font-size: 25px;
+    margin: 10px 0px 0px 0px;
 }
 
 .product-item p {
-    color: #777;
-    font-size: 0.9em;
-    margin: 10px 20px;
-    height: 60px;
+    color: #082eb7;
+    font-size: 30px;
+    margin:1px 20px 1px;
     overflow: hidden;
 }
 
 .product-item span {
-    color: #333;
-    font-size: 1.1em;
-    margin: 10px 0px;
+    color: #383737;
+    font-family: sans-serif, cursive;
+    font-weight: 600;
+    font-size: 19px;
+    margin: 10px 0px 0px 5px;
     display: block;
 }
 
@@ -73,7 +71,7 @@
     cursor: pointer;
     font-size: 1em;
     margin: 10px 0;
-    padding: 10px 20px;
+    padding: 10px 20px 8PX 20PX;
     transition: background-color 0.3 ease;
 }
 
@@ -91,7 +89,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px 0;
+    margin: 5px 0 0 0;
 }
 
 .quantity-controls button{
