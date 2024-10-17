@@ -1,0 +1,68 @@
+.category-list-container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 50px;
+    overflow: hidden;
+}
+
+.category-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+}
+
+.category-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    flex: 0 0 auto; 
+    width: 300px;
+}
+
+.category-item button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #f68b1e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category-item button:hover {
+    background-color: #e67e00;
+}
+
+/* Botones para mover el carrusel */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carousel-button.left {
+    left: 5px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}

@@ -58,7 +58,7 @@ const ProductoDetallePage = () => {
     }
 
     if (!producto) {
-        return <p>Loading producto details ...</p>
+        return <p>Cargando detalles de producto ...</p>
     }
 
     const cartItem = cart.find(item => item.id === producto.id);
