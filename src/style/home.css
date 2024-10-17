@@ -1,5 +1,6 @@
 .home{
     padding: 20px;
+    max-height: 800px;
 }
 .error-message{
     text-align: center;
