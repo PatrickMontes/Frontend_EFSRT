@@ -44,7 +44,7 @@ const Navbar =  () => {
 
             <div className="navbar-link">
                 <NavLink to="/" activeClassName="active">Inicio</NavLink>
-                <NavLink to="/productos" activeClassName="active">Productos</NavLink>
+                <NavLink to="/categories" activeClassName="active">Categorias</NavLink>
                 {isAuthenticated && <NavLink to="/perfil" activeClassName="active">Mi cuenta</NavLink>}
                 {isAdmin && <NavLink to="/admin" activeClassName="active">Admin</NavLink>}
                 {!isAuthenticated && <NavLink to="/login" activeClassName="active">Login</NavLink>}
