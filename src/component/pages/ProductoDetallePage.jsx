@@ -12,20 +12,20 @@ const ProductoDetallePage = () => {
     const [producto, setProducto] = useState(null);
 
 
-    useEffect(()=>{
-        fetchProducto();
-    }, [productoId])
-
-
+   useEffect(() => {
     const fetchProducto = async () => {
         try {
             const response = await ApiService.getAllProductosPorId(productoId);
             console.log(response); // Verificar la respuesta nuevamente
-            setProducto(response.producto); // Acceder correctamente al producto
+            setProducto(response.producto);
         } catch (error) {
             console.error('Error fetching product:', error);
         }
     };
+
+    fetchProducto();
+}, [productoId]);
+
     
     
     
@@ -67,18 +67,20 @@ const ProductoDetallePage = () => {
     return(
         <div className="product-detail">
             <img src={producto?.urlImagen} alt={producto?.nombre} />
-            <h1>{producto?.nombre}</h1>
-            <p>{producto?.descripcion}</p>
-            <span>{producto.precio?.toFixed(2)} soles</span>
-            {cartItem ? (
-                <div className="quantity-controls">
-                    <button onClick={decrementItem}>-</button>
-                    <span>{cartItem.quantity}</span>
-                    <button onClick={incrementItem}>+</button>
-                </div>
-            ):(
-                <button onClick={addToCart}>CARRITO</button>
-            )}
+            <div className="product-info">
+                <h1>{producto?.nombre}</h1>
+                <p>{producto?.descripcion}</p>
+                <span>{producto.precio?.toFixed(2)} soles</span>
+                {cartItem ? (
+                    <div className="quantity-controls">
+                        <button onClick={decrementItem}>-</button>
+                        <span>{cartItem.quantity}</span>
+                        <button onClick={incrementItem}>+</button>
+                    </div>
+                ):(
+                    <button onClick={addToCart}>CARRITO</button>
+                )}
+            </div>
 
         </div>
     )
