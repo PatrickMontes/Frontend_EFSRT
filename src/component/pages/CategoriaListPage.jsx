@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiService from "../../service/ApiService";
 import "../../style/categoriaListPage.css";
@@ -8,6 +8,7 @@ const CategoriaListPage = () => {
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const carouselRef = useRef(null);
 
     useEffect(() => {
         fetchCategorias();
@@ -32,24 +33,49 @@ const CategoriaListPage = () => {
         }
     };
 
+    const handleCategoryClick = (categoriaId) => {
+        navigate(`/categoria/${categoriaId}`);
+    };
+
+    const scrollLeft = () => {
+        carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    };
+
+    const scrollRight = () => {
+        carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    };
+
     return (
+     <div>  
         <div className="category-list-container">
             {error ? (
                 <p className="error-message">{error}</p>
             ) : (
                 <>
-                    <div className="category-carousel">
+                    
+                    <button className="carousel-button left" onClick={scrollLeft}>
+                        ◀
+                    </button>
+                    <div className="category-carousel" ref={carouselRef}>
                         {categorias.map((category) => (
                             <div key={category.id} className="category-item">
-                                <button onClick={() => navigate(`/categoria/${category.id}`)}>
+                                <button onClick={() => handleCategoryClick(category.id)}>
                                     {category.nombre}
                                 </button>
                             </div>
                         ))}
                     </div>
+                    <button className="carousel-button right" onClick={scrollRight}>
+                        ▶
+                    </button>
 
-        
-                    <div className="product-list">
+                   
+                    
+                </>
+            )}
+                      
+        </div>
+        <div className="product-list">
                         {productos.length > 0 ? (
                             productos.map((producto) => (
                                 <div key={producto.id} className="product-item">
@@ -63,9 +89,8 @@ const CategoriaListPage = () => {
                             <p>No hay productos disponibles.</p>
                         )}
                     </div>
-                </>
-            )}
-        </div>
+    </div>
+        
     );
 };
 

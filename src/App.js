@@ -12,7 +12,7 @@ import CartPage from './component/pages/CartPage';
 import LoginPage from './component/pages/LoginPage';
 import RegisterPage from './component/pages/RegisterPage';
 import AdminPage from './component/admin/AdminPage';
-import ProductList from './component/common/ProductList';
+
  
 
 
@@ -30,8 +30,6 @@ function App() {
              <Route path='/categorias' element={<CategoriaListPage/>} />
               <Route path='/categoria/:categoriaId' element={<CategoriaProductoPage/>} />
               <Route path='/carrito' element={<CartPage/>} />
-
-              
 
               {/* ADMIN */}
               <Route path='/admin' element={<AdminRoute element={<AdminPage/>} />} />
