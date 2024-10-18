@@ -70,12 +70,11 @@ export default class ApiService{
     }
 
 
-    static async buscar(valor){
+    static async buscar(valor) {
         const response = await axios.get(`${this.BASE_URL}/producto/buscar`, {
-            params: (valor)
-        })
-
-        return response.data
+            params: { valor } 
+        });
+        return response.data;
     }
 
 

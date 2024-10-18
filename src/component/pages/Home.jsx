@@ -19,19 +19,21 @@ const Home = () => {
                 let allProducts = [];
                 const queryParams = new URLSearchParams(location.search);
                 const searchItem = queryParams.get('search');
-        
+
                 if (searchItem) {
+                    // Si hay un valor de búsqueda, llamar a la API con dicho valor
                     const response = await ApiService.buscar(searchItem);
                     allProducts = response.listaProductos || [];  
                 } else {
+                    // Si no hay valor de búsqueda, obtener todos los productos
                     const response = await ApiService.getAllProductos();
                     allProducts = response.listaProductos || [];
                 }
-        
+
                 setTotalPages(Math.ceil(allProducts.length / itemsPerPage));
                 setProducts(allProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
             } catch (error) {
-                setError(error.response?.data?.message || error.message || 'Unable to fetch products');
+                setError(error.response?.data?.message || error.message || 'No se pueden obtener los productos');
             }
         };
 

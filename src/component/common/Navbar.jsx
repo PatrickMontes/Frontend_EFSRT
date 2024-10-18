@@ -15,10 +15,12 @@ const Navbar =  () => {
         setSearchValue(e.target.value);
     }
 
-    const handleSearchSubmit = async (e) => {
+    const handleSearchSubmit = (e) => {
         e.preventDefault();
-        navigate(`/?search=${searchValue}`)
-    }
+        if (searchValue.trim()) {
+            navigate(`/?search=${encodeURIComponent(searchValue)}`);
+        }
+    };
 
     const handleLogout = () => {
         const confirm = window.confirm("¿Estás segura de que quieres cerrar sesión?");
