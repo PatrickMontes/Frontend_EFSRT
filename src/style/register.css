@@ -21,6 +21,7 @@
 
 .register-page input{
     margin-bottom: 15px;
+    font-family: sans-serif;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;

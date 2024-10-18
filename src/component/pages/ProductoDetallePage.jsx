@@ -16,7 +16,7 @@ const ProductoDetallePage = () => {
     const fetchProducto = async () => {
         try {
             const response = await ApiService.getAllProductosPorId(productoId);
-            console.log(response); // Verificar la respuesta nuevamente
+            console.log(response); 
             setProducto(response.producto);
         } catch (error) {
             console.error('Error fetching product:', error);
@@ -48,7 +48,7 @@ const ProductoDetallePage = () => {
     const decrementItem = () => {
         if (producto) {
             const cartItem = cart.find(item => item.id === producto.id);
-            if (cartItem && cartItem.quantity > 1) {
+            if (cartItem && cartItem.cantidad > 1) {
                 dispatch({type: 'DECREMENT_ITEM', payload: producto}); 
             }else{
                 dispatch({type: 'REMOVE_ITEM', payload: producto}); 
@@ -74,7 +74,7 @@ const ProductoDetallePage = () => {
                 {cartItem ? (
                     <div className="quantity-controls">
                         <button onClick={decrementItem}>-</button>
-                        <span>{cartItem.quantity}</span>
+                        <span>{cartItem.cantidad}</span>
                         <button onClick={incrementItem}>+</button>
                     </div>
                 ):(

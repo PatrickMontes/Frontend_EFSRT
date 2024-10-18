@@ -5,16 +5,16 @@ import { useCart } from "../context/CartContext";
 import '../../style/cart.css';
 
 const CartPage = () => {
-    const { cart, dispatch } = useCart(); // Contexto del carrito
-    const [message, setMessage] = useState(null); // Estado del mensaje
-    const navigate = useNavigate(); // Navegación para redirigir
+    const { cart, dispatch } = useCart();
+    const [message, setMessage] = useState(null); 
+    const navigate = useNavigate(); 
 
-    // Incrementar cantidad de un producto
+    
     const incrementItem = (producto) => {
         dispatch({ type: 'INCREMENT_ITEM', payload: producto });
     }
 
-    // Decrementar cantidad o eliminar producto
+    
     const decrementItem = (producto) => {
         const cartItem = cart.find(item => item.id === producto.id);
         if (cartItem && cartItem.cantidad > 1) {
@@ -24,53 +24,57 @@ const CartPage = () => {
         }
     }
 
-    // Calcular el precio total del carrito
+
     const totalPrice = cart.reduce((total, item) => total + item.precio * item.cantidad, 0);
 
-    // Manejar el proceso de compra
+
     const handleCheckout = async () => {
         if (!ApiService.isAuthenticated()) {
             setMessage("Debes iniciar sesión para realizar un pedido.");
             setTimeout(() => {
                 setMessage('');
-                navigate("/login"); // Redirige al login
+                navigate("/login"); 
             }, 3000);
             return;
         }
 
-        // Preparar los items del pedido
+        
         const orderItems = cart.map(item => ({
             productoId: item.id,
             cantidad: item.cantidad
         }));
 
-        // Crear la solicitud de pedido
+        
         const orderRequest = {
             totalPrice,
             items: orderItems,
         };
 
         try {
-            const response = await ApiService.crearPedido(orderRequest); // Llamar al servicio API
-            setMessage(response.message);
-
+            const response = await ApiService.crearPedido(orderRequest);
+            console.log("Respuesta del servidor:", response); // Asegúrate de que esta línea imprima la respuesta
+        
+            // Verifica si el mensaje está presente en la respuesta
+            if (response && response.mensaje) {
+                setMessage(response.mensaje);
+            }
+        
+            if (response.estado === 200) {
+                dispatch({ type: 'CLEAR_CART' });
+            }
+        
             setTimeout(() => {
                 setMessage('');
             }, 5000);
-
-            // Si la respuesta es correcta, limpiar el carrito
-            if (response.status === 200) {
-                dispatch({ type: 'CLEAR_CART' });
-                navigate("/order-confirmation"); // Redirige a confirmación de pedido
-            }
-
+        
         } catch (error) {
-            // Manejar errores
-            setMessage(error.response?.data?.message || error.message || 'No se pudo realizar el pedido.');
+            console.log("Error:", error);
+            setMessage(error.response?.data?.mensaje || error.message || 'No se pudo realizar el pedido.');
             setTimeout(() => {
                 setMessage('');
             }, 3000);
         }
+        
     };
 
     return (
@@ -78,8 +82,9 @@ const CartPage = () => {
             <h1>Carrito de Compras</h1>
             {message && <p className="response-message">{message}</p>}
 
+
             {cart.length === 0 ? (
-                <p>Tu carrito está vacío</p>
+                <p className="mensaje-vacio">Tu carrito está vacío</p>
             ) : (
                 <div>
                     <ul>
@@ -87,14 +92,14 @@ const CartPage = () => {
                             <li key={item.id}>
                                 <img src={item.urlImagen} alt={item.nombre} />
                                 <div>
-                                    <h2>{item.nombre}</h2>
+                                    <h3>{item.nombre}</h3>
                                     <p>{item.descripcion}</p>
                                     <div className="quantity-controls">
                                         <button onClick={() => decrementItem(item)}>-</button>
                                         <span>{item.cantidad}</span>
                                         <button onClick={() => incrementItem(item)}>+</button>
                                     </div>
-                                    <span>${item.precio.toFixed(2)}</span>
+                                    <span>{item.precio.toFixed(2)} soles</span>
                                 </div>
                             </li>
                         ))}
