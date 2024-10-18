@@ -1,0 +1,27 @@
+.admin-page{
+    margin-bottom: 100px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin-page h1{
+    margin-bottom: 20px;
+    font-size: 35px;
+    color: #092fb7;
+}
+.admin-page button{
+    margin: 10px;
+    padding: 20px;
+    font-size: 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    background-color: #ffd001;
+    width: 35%;
+    color: #000000;
+}
+.admin-page button:hover{
+    background-color: #c6a512;
+}

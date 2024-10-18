@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { ProtectedRoute, AdminRoute } from './service/Guard';
 import { CartProvider } from './component/context/CartContext';
 import Navbar from './component/common/Navbar';
 import Footer from './component/common/Footer';
@@ -10,6 +11,8 @@ import CategoriaProductoPage from './component/pages/CategoriaProductoPage';
 import CartPage from './component/pages/CartPage';
 import LoginPage from './component/pages/LoginPage';
 import RegisterPage from './component/pages/RegisterPage';
+import AdminPage from './component/admin/AdminPage';
+ 
 
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
               <Route path='/categorias' element={<CategoriaListPage/>} />
               <Route path='/categoria/:categoriaId' element={<CategoriaProductoPage/>} />
               <Route path='/carrito' element={<CartPage/>} />
+
+              {/* ADMIN */}
+              <Route path='/admin' element={<AdminRoute element={<AdminPage/>} />} />
             </Routes>
           <Footer />
       </CartProvider>
