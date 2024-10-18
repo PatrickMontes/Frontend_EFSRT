@@ -7,6 +7,7 @@ import Home from './component/pages/Home';
 import ProductoDetallePage from './component/pages/ProductoDetallePage';
 import CategoriaListPage from './component/pages/CategoriaListPage';
 import CategoriaProductoPage from './component/pages/CategoriaProductoPage';
+import CartPage from './component/pages/CartPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path='/producto/:productoId' element={<ProductoDetallePage/>} />
               <Route path='/categorias' element={<CategoriaListPage/>} />
               <Route path='/categoria/:categoriaId' element={<CategoriaProductoPage/>} />
+              <Route path='/carrito' element={<CartPage/>} />
             </Routes>
           <Footer />
       </CartProvider>
