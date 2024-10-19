@@ -18,6 +18,8 @@ import AdminCategoriaPage from './component/admin/AdminCategoriaPage';
 import AdminCategoriaAgregar from './component/admin/AdminCategoriaAgregar';
 import AdminCategoriaEditar from './component/admin/AdminCategoriaEditar';
 import AdminProductoPage from './component/admin/AdminProductoPage';
+import AdminProductoAgregar from './component/admin/AdminProductoAgregar';
+import AdminProductoEditar from './component/admin/AdminProductoEditar';
 
  
 
@@ -54,6 +56,8 @@ function App() {
               <Route path='/admin/editar-categoria/:categoriaId' element={<AdminRoute element={<AdminCategoriaEditar/>} />} />
 
               <Route path='/admin/productos' element={<AdminRoute element={<AdminProductoPage/>} />} />
+              <Route path='/admin/agregar-producto' element={<AdminRoute element={<AdminProductoAgregar/>} />} />
+              <Route path='/admin/editar-producto/:productoId' element={<AdminRoute element={<AdminProductoEditar/>} />} />
 
             </Routes>
           <Footer />
