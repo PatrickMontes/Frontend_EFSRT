@@ -122,13 +122,13 @@ export default class ApiService{
     }
 
 
-    static async actualizarCategoria(body, categoriaId){
+    static async actualizarCategoria(categoriaId, body) {
         const response = await axios.put(`${this.BASE_URL}/categoria/actualizar/${categoriaId}`, body, {
             headers: this.getHeader()
-        })
-
-        return response.data
+        });
+        return response.data;
     }
+    
 
 
     static async eliminarCategoria(categoriaId){
