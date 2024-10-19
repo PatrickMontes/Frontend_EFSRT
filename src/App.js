@@ -14,6 +14,7 @@ import RegisterPage from './component/pages/RegisterPage';
 import AdminPage from './component/admin/AdminPage';
 import PerfilPage from './component/pages/PerfilPage';
 import DireccionPage from './component/pages/DireccionPage';
+
  
 
 
@@ -28,7 +29,7 @@ function App() {
               <Route path='/register' element={<RegisterPage/>}/>   
               
               <Route path='/producto/:productoId' element={<ProductoDetallePage/>} />
-              <Route path='/categorias' element={<CategoriaListPage/>} />
+             <Route path='/categorias' element={<CategoriaListPage/>} />
               <Route path='/categoria/:categoriaId' element={<CategoriaProductoPage/>} />
               <Route path='/carrito' element={<CartPage/>} />
               <Route path='/perfil' element={<ProtectedRoute element={<PerfilPage/>} />} />
