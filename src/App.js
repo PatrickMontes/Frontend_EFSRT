@@ -14,6 +14,8 @@ import RegisterPage from './component/pages/RegisterPage';
 import AdminPage from './component/admin/AdminPage';
 import PerfilPage from './component/pages/PerfilPage';
 import DireccionPage from './component/pages/DireccionPage';
+import AdminCategoriaPage from './component/admin/AdminCategoriaPage';
+import AdminCategoriaAgregar from './component/admin/AdminCategoriaAgregar';
 
  
 
@@ -24,20 +26,30 @@ function App() {
       <CartProvider>
           <Navbar />
             <Routes>
+              {/* AUTENTICACION */}
               <Route exact path='/' element={<Home />} />
               <Route path='/login' element={<LoginPage/>}/>
               <Route path='/register' element={<RegisterPage/>}/>   
               
+              
+              {/* CLIENTE */}
               <Route path='/producto/:productoId' element={<ProductoDetallePage/>} />
              <Route path='/categorias' element={<CategoriaListPage/>} />
               <Route path='/categoria/:categoriaId' element={<CategoriaProductoPage/>} />
               <Route path='/carrito' element={<CartPage/>} />
+
+
+              {/* PERFIL */}
               <Route path='/perfil' element={<ProtectedRoute element={<PerfilPage/>} />} />
               <Route path='/agregar-direccion' element={<ProtectedRoute element={<DireccionPage/>} />} />
               <Route path='/editar-direccion' element={<ProtectedRoute element={<DireccionPage/>} />} />
 
+
               {/* ADMIN */}
               <Route path='/admin' element={<AdminRoute element={<AdminPage/>} />} />
+              <Route path='/admin/categorias' element={<AdminRoute element={<AdminCategoriaPage/>} />} />
+              <Route path='/admin/agregar-categoria' element={<AdminRoute element={<AdminCategoriaAgregar/>} />} />
+
             </Routes>
           <Footer />
       </CartProvider>
