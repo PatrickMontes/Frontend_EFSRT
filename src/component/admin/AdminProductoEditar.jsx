@@ -5,34 +5,34 @@ import ApiService from "../../service/ApiService";
 
 
 const AdminProductoEditar = () => {
-    const {productId} = useParams();
-    const [image, setImage] = useState(null);
-    const [categories, setCategories] = useState([]);
-    const [categoryId, setCategoryId] = useState('');
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [message, setMessage] = useState('');
-    const [price, setPrice] = useState('');
-    const [imageUrl, setImageUrl] = useState(null);
+    const {productoId} = useParams();
+    const [imagen, setImagen] = useState(null);
+    const [categorias, setCategorias] = useState([]);
+    const [categoriaId, setCategoriaId] = useState('');
+    const [nombre, setNombre] = useState('');
+    const [descripcion, setDescripcion] = useState('');
+    const [mensaje, setMensaje] = useState('');
+    const [precio, setPrecio] = useState('');
+    const [urlImagen, setUrlImagen] = useState(null);
     const navigate = useNavigate();
 
     useEffect(()=>{
-        ApiService.getAllCategory().then((res) => setCategories(res.categoryList));
+        ApiService.getAllCategorias().then((res) => setCategorias(res.listaCategorias));
 
-        if (productId) {
-            ApiService.getProductById(productId).then((response)=>{
-                setName(response.product.name);
-                setDescription(response.product.description);
-                setPrice(response.product.price);
-                setCategoryId(response.product.categoryId);
-                setImageUrl(response.product.imageUrl);
+        if (productoId) {
+            ApiService.getAllProductosPorId(productoId).then((response)=>{
+                setNombre(response.producto.nombre);
+                setDescripcion(response.producto.descripcion);
+                setPrecio(response.producto.precio);
+                setCategoriaId(response.producto.categoriaId);
+                setUrlImagen(response.producto.urlImagen);
             })
         }
-    }, [productId]);
+    }, [productoId]);
 
     const handleImageChange = (e) =>{
-        setImage(e.target.files[0]);
-        setImageUrl(URL.createObjectURL(e.target.files[0]));
+        setImagen(e.target.files[0]);
+        setUrlImagen(URL.createObjectURL(e.target.files[0]));
     };
 
     
@@ -40,58 +40,48 @@ const AdminProductoEditar = () => {
         e.preventDefault();
         try {
             const formData = new FormData();
-            if(image){
-                formData.append('image', image);
+            if (imagen) {
+                formData.append('imagen', imagen);
             }
-            formData.append('productId', productId);
-            formData.append('categoryId', categoryId);
-            formData.append('name', name);
-            formData.append('description', description);
-            formData.append('price', price);
-
-            const response = await ApiService.updateProduct(formData);
-            if (response.status === 200) {
-                setMessage(response.message)
+            formData.append('productoId', productoId); 
+            formData.append('categoriaId', categoriaId);
+            formData.append('nombre', nombre);
+            formData.append('descripcion', descripcion);
+            formData.append('precio', precio);
+    
+            const response = await ApiService.actualizarProducto(formData);
+            if (response.estado === 200) {
+                setMensaje(response.mensaje);
                 setTimeout(() => {
-                    setMessage('')
-                    navigate('/admin/products')
-                }, 3000);
+                    setMensaje('');
+                    navigate('/admin/productos');
+                }, 2000);
             }
-
+    
         } catch (error) {
-            setMessage(error.response?.data?.message || error.message || 'unable to update product')
+            setMensaje(error.response?.data?.mensaje || error.message || 'Error al actualizar Producto');
         }
-    }
+    };
+    
+    
 
     return(
         <form onSubmit={handleSubmit} className="product-form">
-            <h2>Edit Produc</h2>
-            {message && <div className="message">{message}</div>}
+            <h2>Editar Producto</h2>
+            {mensaje && <div className="message">{mensaje}</div>}
             <input type="file" onChange={handleImageChange}/>
-            {imageUrl && <img src={imageUrl} alt={name} />}
-            <select value={categoryId} onChange={(e)=> setCategoryId(e.target.value)}>
-                <option value="">Select Category</option>
-                {categories.map((cat)=>(
-                    <option value={cat.id} key={cat.id}>{cat.name}</option>
+            {urlImagen && <img src={urlImagen} alt={nombre} />}
+            <select value={categoriaId} onChange={(e)=> setCategoriaId(e.target.value)}>
+                <option value="">Seleccionar Categoria</option>
+                {categorias.map((cat)=>(
+                    <option value={cat.id} key={cat.id}>{cat.nombre}</option>
                 ))}
             </select>
 
-            <input type="text" 
-                placeholder="Product name"
-                value={name}
-                onChange={(e)=> setName(e.target.value)} />
-
-                <textarea 
-                placeholder="Description"
-                value={description}
-                onChange={(e)=> setDescription(e.target.value)}/>
-
-                <input type="number" 
-                placeholder="Price"
-                value={price}
-                onChange={(e)=> setPrice(e.target.value)} />
-
-                <button type="submit">Update</button>
+            <input type="text" placeholder="Nombre de Producto" value={nombre} onChange={(e)=> setNombre(e.target.value)} />
+            <input placeholder="Descripcion" value={descripcion} onChange={(e)=> setDescripcion(e.target.value)}/>
+            <input type="number" placeholder="Precio" value={precio} onChange={(e)=> setPrecio(e.target.value)} />
+            <button type="submit">EDITAR</button>
         </form>
     );
 }

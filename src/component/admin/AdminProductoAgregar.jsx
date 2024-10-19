@@ -50,7 +50,7 @@ const AdminProductoAgregar = () => {
     return(
         <div>
             <form onSubmit={handleSubmit} className="product-form">
-                <h2>Add Product</h2>
+                <h2>AGREGAR PRODUCTO</h2>
                 {mensaje && <div className="message">{mensaje}</div>}
                 <input type="file" onChange={handleImage} />
                 <select value={categoriaId} onChange={(e) => setCategoriaId(e.target.value)} >
@@ -61,7 +61,7 @@ const AdminProductoAgregar = () => {
                 </select>
                 <input type="text"  placeholder="Nombre de Producto" value={nombre} onChange={(e)=> setNombre(e.target.value)} />
 
-                <textarea  placeholder="Descripcion" value={descripcion} onChange={(e)=> setDescripcion(e.target.value)}/>
+                <input type="text"  placeholder="Descripcion" value={descripcion} onChange={(e)=> setDescripcion(e.target.value)}/>
 
                 <input type="number"  placeholder="Precio" value={precio} onChange={(e)=> setPrecio(e.target.value)} />
 

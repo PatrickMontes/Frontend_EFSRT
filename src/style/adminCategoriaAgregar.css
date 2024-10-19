@@ -12,6 +12,9 @@
 .category-form h2{
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: center;
+    color: #082eb7;
+    font-weight: 900;
 }
 .category-form input{
     padding: 10px;

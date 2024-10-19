@@ -29,7 +29,7 @@ const AdminCategoriaAgregar = () => {
             {mensaje && <p className="message">{mensaje}</p>}
             <form onSubmit={handleSubmit} className="category-form">
                 <h2>AGREGAR CATEGORIA</h2>
-                <input type="text" placeholder="Category Name" value={nombre} onChange={(e)=> setNombre(e.target.value)} />
+                <input type="text" placeholder="Nombre de categoria" value={nombre} onChange={(e)=> setNombre(e.target.value)} />
                 <button type="submit">AGREGAR</button>
             </form>
         </div>

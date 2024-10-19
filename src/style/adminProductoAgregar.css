@@ -2,17 +2,37 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin: auto;
+    margin: auto;;
     margin-bottom: 250px;
 }
 
+.product-form h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #082eb7;
+    font-weight: 900;
+}
+
 .product-form input,
-.product-form select,
-.product-form textarea,
-.product-form button {
-    margin: 10x 0;
+.product-form select{
+    margin: 8px 0;
     padding: 10px;
+    font-family: 'Cocogoose-Classic-medium';
     font-size: 16px;
+}
+
+.product-form button {
+    margin: 0 auto;
+    padding: 15px;
+    width: 30%;
+    display: block;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.product-form [type="number"] {
+    font-family: sans-serif;
 }
 
 .product-form button {
