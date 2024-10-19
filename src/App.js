@@ -17,6 +17,7 @@ import DireccionPage from './component/pages/DireccionPage';
 import AdminCategoriaPage from './component/admin/AdminCategoriaPage';
 import AdminCategoriaAgregar from './component/admin/AdminCategoriaAgregar';
 import AdminCategoriaEditar from './component/admin/AdminCategoriaEditar';
+import AdminProductoPage from './component/admin/AdminProductoPage';
 
  
 
@@ -51,6 +52,9 @@ function App() {
               <Route path='/admin/categorias' element={<AdminRoute element={<AdminCategoriaPage/>} />} />
               <Route path='/admin/agregar-categoria' element={<AdminRoute element={<AdminCategoriaAgregar/>} />} />
               <Route path='/admin/editar-categoria/:categoriaId' element={<AdminRoute element={<AdminCategoriaEditar/>} />} />
+
+              <Route path='/admin/productos' element={<AdminRoute element={<AdminProductoPage/>} />} />
+
             </Routes>
           <Footer />
       </CartProvider>
