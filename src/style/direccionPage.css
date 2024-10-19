@@ -1,0 +1,50 @@
+.address-page{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1 0 10p rgba(0, 0, 0, 0.1);
+}
+
+.address-page h2{
+    text-align: center;
+    color: #082eb7;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.address-page form{
+    display: flex;
+    flex-direction: column;
+}
+.address-page label{
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-weight: bold;
+}
+.address-page input{
+    padding: 8px;
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 99%;
+}
+.address-page button{
+    padding: 10px 20px;
+    background-color: #f68b1e;
+    font-size: 20px;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+.address-page button:hover{
+    background-color: #8c4d0e;
+}
+
+.error-message{
+    color: red;
+    margin-bottom: 20px;
+    text-align: center;
+}

@@ -52,7 +52,7 @@ const Navbar =  () => {
                 {isAdmin && <NavLink to="/admin" activeClassname="active">Admin</NavLink>}
                 {!isAuthenticated && <NavLink to="/login" activeClassname="active">Login</NavLink>}
                 {isAuthenticated && <NavLink onClick={handleLogout}>Logout</NavLink>}
-                <NavLink to="/carrito">Carrito</NavLink>
+                {!isAdmin && <NavLink to="/carrito">Carrito</NavLink>}
             </div>
         </nav>
     )
