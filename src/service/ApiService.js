@@ -52,14 +52,26 @@ export default class ApiService{
     }
 
 
-    static async actualizar(productoId, formData){
-        const response = await axios.put(`${this.BASE_URL}/producto/actualizar/${productoId}`, formData, {
-            headers: {
-                ...this.getHeader(),
-                "Content-Type": "multipart/form-data"
-            }
-        })
+    static async actualizarProducto(formData) {
+        try {
+            const response = await axios.put(`${this.BASE_URL}/producto/actualizar`, formData, {
+                headers: {
+                    ...this.getHeader(),
+                    "Content-Type": "multipart/form-data"
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error al actualizar el producto:', error.response?.data || error.message);
+            throw error;
+        }
+    }
+    
+    
 
+
+    static async getAllProductosPorId(productoId){
+        const response = await axios.get(`${this.BASE_URL}/producto/getProductoPorId/${productoId}`)
         return response.data
     }
 
@@ -80,12 +92,6 @@ export default class ApiService{
 
     static async getAllProductosPorCategoriaId(categoriaId){
         const response = await axios.get(`${this.BASE_URL}/producto/getProductosPorCategoria/${categoriaId}`)
-        return response.data
-    }
-
-
-    static async getAllProductosPorId(productoId){
-        const response = await axios.get(`${this.BASE_URL}/producto/getProductoPorId/${productoId}`)
         return response.data
     }
 

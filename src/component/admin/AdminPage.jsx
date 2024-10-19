@@ -10,7 +10,7 @@ const AdminPage = () => {
         <div className="admin-page">
             <h1>BIENVENIDO A MASS</h1>
             <button onClick={()=> navigate("/admin/categorias")}>Administrar Categorias</button>
-            <button onClick={()=> navigate("/admin/products")}>Administrar Productos</button>
+            <button onClick={()=> navigate("/admin/productos")}>Administrar Productos</button>
             <button onClick={()=> navigate("/admin/orders")}>Administrar Ordenes</button>
         </div>
     )
