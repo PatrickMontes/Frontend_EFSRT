@@ -41,7 +41,6 @@ const AdminCategoriaPage = () => {
         <div className="admin-category-page">
             <div className="admin-category-list">
                 <h2>Categorias</h2>
-                <button onClick={()=> navigate('/admin/agregar-categoria')}>AGREGAR</button>
                 <ul>
                     {categorias.map((categoria) => (
                         <li key={categoria.id}>
@@ -53,6 +52,8 @@ const AdminCategoriaPage = () => {
                         </li>
                     ))}
                 </ul>
+                <button className="admin-category-button-add" onClick={()=> navigate('/admin/agregar-categoria')}>AGREGAR</button>
+
             </div>
         </div>
     )

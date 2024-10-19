@@ -8,19 +8,23 @@
 }
 
 .admin-category-list h2{
-    font-size: 25px;
+    font-size: 40px;
+    color: #082eb7;
     margin-bottom: 20px;
+    text-align: center;
 }
-.admin-category-list button{
+.admin-category-list .admin-category-button-add {
     background-color: #f68b1e;
     color: #fff;
     font-size: 20px;
     border: none;
-    padding: 10px 15px;
-    margin-bottom: 10px;
+    padding: 10px 15px 6px;
     cursor: pointer;
     border-radius: 4px;
+    display: block;
+    margin: 0 auto; 
 }
+
 .admin-category-list button:hover{
     background-color: #a25d19;
 }
@@ -35,12 +39,16 @@
     border: 1px solid #ccc;
 }
 .admin-category-list ul li span{
+    font-size: 25px;
     color: #444;
 }
 
 .admin-bt button{
     background-color: tomato;
     color: #fff;
+    font-size: 20px;
+    border: none;
+    padding: 10px 15px 6px;
     border: 8px 16px;
     cursor: pointer;
     margin-left: 10px;
