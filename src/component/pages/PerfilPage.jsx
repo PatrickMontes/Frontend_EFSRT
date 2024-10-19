@@ -4,7 +4,7 @@ import ApiService from "../../service/ApiService";
 import '../../style/perfilPage.css';
 import Pagination from "../common/Pagination";
 
-const ProfilePage = () => {
+const PerfilPage = () => {
 
     const [userInfo, setUserInfo] = useState(null);
     const [error, setError] = useState(null);
@@ -33,7 +33,7 @@ const ProfilePage = () => {
     }
 
     const handleAddressClick = () => {
-        navigate(userInfo.direccion ? '/edit-address' : '/add-address');  // Cambiado de userInfo.address
+        navigate(userInfo.direccion ? '/editar-direccion' : '/agregar-direccion');  // Cambiado de userInfo.address
     }
     
 
@@ -105,4 +105,4 @@ const ProfilePage = () => {
     
 }
 
-export default ProfilePage;
+export default PerfilPage;
