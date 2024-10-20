@@ -46,10 +46,12 @@ const Navbar =  () => {
             </form>
 
             <div className="navbar-link">
-                <NavLink to="/" activeClassname="active">Inicio</NavLink>
-                <NavLink to="/categorias" activeClassname="active">Categorias</NavLink>
-                {isAuthenticated && <NavLink to="/perfil" activeClassname="active">Mi cuenta</NavLink>}
-                {isAdmin && <NavLink to="/admin" activeClassname="active">Admin</NavLink>}
+                {!isAdmin &&<NavLink to="/" activeClassname="active">Inicio</NavLink>}
+                {!isAdmin &&<NavLink to="/categorias" activeClassname="active">Categorias</NavLink>}
+                {isAuthenticated && <NavLink to="/perfil" activeClassname="active">Pefil</NavLink>}
+                {isAdmin && <NavLink to="/admin/categorias" activeClassname="active">Categorias</NavLink>}
+                {isAdmin && <NavLink to="/admin/productos" activeClassname="active">Productos</NavLink>}
+                {isAdmin && <NavLink to="/admin/pedidos" activeClassname="active">Pedidos</NavLink>}
                 {!isAuthenticated && <NavLink to="/login" activeClassname="active">Login</NavLink>}
                 {isAuthenticated && <NavLink onClick={handleLogout}>Logout</NavLink>}
                 {!isAdmin && <NavLink to="/carrito">Carrito</NavLink>}

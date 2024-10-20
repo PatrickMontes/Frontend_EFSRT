@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProtectedRoute, AdminRoute } from './service/Guard';
 import { CartProvider } from './component/context/CartContext';
 import Navbar from './component/common/Navbar';
@@ -11,7 +11,6 @@ import CategoriaProductoPage from './component/pages/CategoriaProductoPage';
 import CartPage from './component/pages/CartPage';
 import LoginPage from './component/pages/LoginPage';
 import RegisterPage from './component/pages/RegisterPage';
-import AdminPage from './component/admin/AdminPage';
 import PerfilPage from './component/pages/PerfilPage';
 import DireccionPage from './component/pages/DireccionPage';
 import AdminCategoriaPage from './component/admin/AdminCategoriaPage';
@@ -21,6 +20,7 @@ import AdminProductoPage from './component/admin/AdminProductoPage';
 import AdminProductoAgregar from './component/admin/AdminProductoAgregar';
 import AdminProductoEditar from './component/admin/AdminProductoEditar';
 import AdminPedidoPage from './component/admin/AdminPedidoPage';
+import AdminPedidoDetallePage from './component/admin/AdminPedidoDetallePage';
 
  
 
@@ -51,7 +51,6 @@ function App() {
 
 
               {/* ADMIN */}
-              <Route path='/admin' element={<AdminRoute element={<AdminPage/>} />} />
               <Route path='/admin/categorias' element={<AdminRoute element={<AdminCategoriaPage/>} />} />
               <Route path='/admin/agregar-categoria' element={<AdminRoute element={<AdminCategoriaAgregar/>} />} />
               <Route path='/admin/editar-categoria/:categoriaId' element={<AdminRoute element={<AdminCategoriaEditar/>} />} />
@@ -61,6 +60,7 @@ function App() {
               <Route path='/admin/editar-producto/:productoId' element={<AdminRoute element={<AdminProductoEditar/>} />} />
 
               <Route path='/admin/pedidos' element={<AdminRoute element={<AdminPedidoPage/>} />} />
+              <Route path='/admin/pedido-detalles/:itemId' element={<AdminRoute element={<AdminPedidoDetallePage/>} />} />
 
             </Routes>
           <Footer />
