@@ -20,6 +20,7 @@ import AdminCategoriaEditar from './component/admin/AdminCategoriaEditar';
 import AdminProductoPage from './component/admin/AdminProductoPage';
 import AdminProductoAgregar from './component/admin/AdminProductoAgregar';
 import AdminProductoEditar from './component/admin/AdminProductoEditar';
+import AdminPedidoPage from './component/admin/AdminPedidoPage';
 
  
 
@@ -58,6 +59,8 @@ function App() {
               <Route path='/admin/productos' element={<AdminRoute element={<AdminProductoPage/>} />} />
               <Route path='/admin/agregar-producto' element={<AdminRoute element={<AdminProductoAgregar/>} />} />
               <Route path='/admin/editar-producto/:productoId' element={<AdminRoute element={<AdminProductoEditar/>} />} />
+
+              <Route path='/admin/pedidos' element={<AdminRoute element={<AdminPedidoPage/>} />} />
 
             </Routes>
           <Footer />

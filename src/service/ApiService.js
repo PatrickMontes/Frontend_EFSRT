@@ -157,8 +157,19 @@ export default class ApiService{
     }
 
 
-    static async getAllPedidos(){
-        const response = await axios.get(`${this.BASE_URL}/pedido/filtrar`)
+    static async getAllPedidos() {
+        const response = await axios.get(`${this.BASE_URL}/pedido/filtrar`, {
+            headers: this.getHeader() 
+        });
+        return response.data;
+    }
+
+
+    static async getAllPedidoItemPorEstado(estado){
+        const response = await axios.get(`${this.BASE_URL}/pedido/filtrar`, {
+            headers: this.getHeader(),
+            params: {estado}
+        })
         return response.data
     }
 
@@ -167,15 +178,6 @@ export default class ApiService{
         const response = await axios.get(`${this.BASE_URL}/pedido/filtrar`, {
             headers: this.getHeader(),
             params: {itemId}
-        })
-        return response.data
-    }
-
-
-    static async getAllPedidoItemPorEstado(estado){
-        const response = await axios.get(`${this.BASE_URL}/pedido/filtrar`, {
-            headers: this.getHeader(),
-            params: {estado}
         })
         return response.data
     }

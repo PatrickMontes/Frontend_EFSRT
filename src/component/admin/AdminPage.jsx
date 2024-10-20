@@ -11,7 +11,7 @@ const AdminPage = () => {
             <h1>BIENVENIDO A MASS</h1>
             <button onClick={()=> navigate("/admin/categorias")}>Administrar Categorias</button>
             <button onClick={()=> navigate("/admin/productos")}>Administrar Productos</button>
-            <button onClick={()=> navigate("/admin/orders")}>Administrar Ordenes</button>
+            <button onClick={()=> navigate("/admin/pedidos")}>Administrar Pedidos</button>
         </div>
     )
 }
