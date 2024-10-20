@@ -26,14 +26,14 @@ const LoginPage = () => {
             const response = await ApiService.loginUsuario(formData);
             console.log("Respuesta del servidor:", response); 
             if (response.estado === 200) { 
-                setMessage("User Successfully Logged in");
+                setMessage("Usuario iniciada exitosamente");
                 localStorage.setItem('token', response.token); 
                 localStorage.setItem('rol', response.rol);   
-                navigate("/productos"); 
+                navigate("/perfil"); 
             }
         } catch (error) {
             console.error("Error durante el inicio de sesión:", error);
-            const errorMessage = error.response?.data?.mensaje || error.message || "Unable to Login a user";
+            const errorMessage = error.response?.data?.mensaje || error.message || "No se puede iniciar sesión una usuario";
             setMessage(errorMessage);
         }
     }
@@ -62,7 +62,7 @@ const LoginPage = () => {
                     <button type="submit">Login</button>
                     
                     <p className="register-link">
-                        Don't have an account? <a href="/register">Register</a>
+                        ¿No tienes una cuenta? <a href="/register">Register</a>
                     </p>
             </form>
         </div>

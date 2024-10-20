@@ -33,11 +33,11 @@ const PerfilPage = () => {
     }
 
     const handleAddressClick = () => {
-        navigate(userInfo.direccion ? '/editar-direccion' : '/agregar-direccion');  // Cambiado de userInfo.address
+        navigate(userInfo.direccion ? '/editar-direccion' : '/agregar-direccion');  
     }
     
 
-    const listaItemsPedido = userInfo.listaItemsPedido || [];
+    const listaItemsPedido = userInfo.listaItemsPedido|| [];
 
     const totalPages = Math.ceil(listaItemsPedido.length / itemsPerPage);
 

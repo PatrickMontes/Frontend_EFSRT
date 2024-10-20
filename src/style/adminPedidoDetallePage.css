@@ -1,0 +1,94 @@
+.order-details-page{
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 100px;
+}
+.order-details-page h2{
+    text-align: center;
+    color: #082eb7;
+    font-size: 40px;
+    font-weight: 700;
+}
+.message{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.order-item-details{
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+.order-item-details h3{
+    font-size: 25px;
+    color: #344da8;
+}
+
+.order-item-details p strong {
+    font-size: 18px;
+}
+
+.order-item-details p span{
+    font-family: sans-serif;
+    margin-left: 5px;
+}
+
+.order-item-details .order-product{
+    text-align: center; /* Centra el texto y el contenido en línea */
+    /* También puedes agregar un margen para centrar el div en su contenedor */
+    margin: 0 auto;
+}
+
+.info{
+    margin-bottom: 20px;
+}
+.info p{
+    margin: 5px 0;
+}
+
+.status-change{
+    display: grid;
+    place-items: center; /* Centra los elementos tanto horizontal como verticalmente */
+    text-align: center;
+}
+
+.status-change h4{
+    color: #082eb7;
+    margin-top: 50px;
+    font-size: 40px;
+}
+
+.status-option{
+    padding: 10px;
+}
+
+
+.update-status-button{
+    background-color: #f68b1e;
+    color: #fff;
+    margin-left: 10px;
+    padding: 10px;
+    font-weight: 800;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+}
+.update-status-button:hover{
+    background-color: #b77029;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
