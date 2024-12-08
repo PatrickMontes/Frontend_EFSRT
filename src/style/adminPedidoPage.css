@@ -22,13 +22,16 @@
 .statusFilter{
     padding: 10px;
 }
-.statusFilter label, .searchStatus label{
-    font-size: 20px;
+.statusFilter input {
+    padding: 7px;
+}
+.statusFilter label, .searchStatus label, input{
+    font-size: 16px;
     font-weight: 700;
 }
 .searchStatus{
-    margin-left: 45%;
-    padding: 10px;
+    margin-right: 47%;
+    padding: 10px5
 }
 .orders-table{
     width: 100%;

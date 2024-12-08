@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProtectedRoute, AdminRoute } from './service/Guard';
 import { CartProvider } from './component/context/CartContext';
 import Navbar from './component/common/Navbar';
+import Pedidos from './component/common/Pedidos';
 import Footer from './component/common/Footer';
 import Home from './component/pages/Home';
 import ProductoDetallePage from './component/pages/ProductoDetallePage';
@@ -30,6 +31,7 @@ function App() {
     <BrowserRouter>
       <CartProvider>
           <Navbar />
+          <Pedidos />
             <Routes>
               {/* AUTENTICACION */}
               <Route exact path='/' element={<Home />} />

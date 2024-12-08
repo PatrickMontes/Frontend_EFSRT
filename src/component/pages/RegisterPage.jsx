@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiService from "../../service/ApiService";
+import { toast, ToastContainer } from "react-toastify"; // Importa toast y ToastContainer
+import "react-toastify/dist/ReactToastify.css"; // Estilos de react-toastify
 import '../../style/register.css';
 
 const RegisterPage = () => {
@@ -11,7 +13,6 @@ const RegisterPage = () => {
     contrasena: ''
   });
 
-  const [message, setMessage] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -24,20 +25,19 @@ const RegisterPage = () => {
     try {
       const response = await ApiService.registrarUsuario(formData);
       if (response.estado === 200) {
-        setMessage("Usuario Registrado Satisfactoriamente");
+        toast.success("Usuario Registrado Satisfactoriamente"); // Muestra el toast de éxito
         setTimeout(() => {
           navigate("/login");
         }, 4000);
       }
     } catch (error) {
-      setMessage(error.response?.data.mensaje || error.message || "Incapaz de Registrar el Usuario");
+      toast.error(error.response?.data.mensaje || error.message || "Incapaz de Registrar el Usuario"); // Muestra el toast de error
     }
   };
 
   return (
     <div className="register-page">
       <h2>Register</h2>
-      {message && <p className="message">{message}</p>}
       <form onSubmit={handleSubmit}>
         <label>Email: </label>
         <input
@@ -80,6 +80,9 @@ const RegisterPage = () => {
           Already have an account? <a href="/login">Login</a>
         </p>
       </form>
+
+      {/* Este contenedor es necesario para que se muestren las notificaciones */}
+      <ToastContainer />
     </div>
   );
 };

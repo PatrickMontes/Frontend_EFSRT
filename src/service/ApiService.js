@@ -157,6 +157,19 @@ export default class ApiService{
     }
 
 
+    static async obtenerUsuarioDetalle(usuarioId) {
+        try {
+            const response = await axios.get(`${this.BASE_URL}/usuario/${usuarioId}/detalle`, {
+                headers: this.getHeader(),
+            });
+            return response.data;
+        } catch (error) {
+            console.error("Error al obtener el detalle del usuario:", error.response?.data || error.message);
+            throw error;
+        }
+    }
+    
+
     static async getAllPedidos() {
         const response = await axios.get(`${this.BASE_URL}/pedido/filtrar`, {
             headers: this.getHeader() 
